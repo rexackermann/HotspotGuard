@@ -4,7 +4,7 @@
     <strong>Extend your phone's ad-blocker to every device on your hotspot.</strong>
   </p>
   <p align="center">
-    <img src="https://img.shields.io/badge/Android-15-brightgreen?style=flat-square&logo=android" alt="Android 15">
+    <img src="https://img.shields.io/badge/KernelSU-Supported-brightgreen?style=flat-square&logo=android" alt="KernelSU">
     <img src="https://img.shields.io/badge/Root-Magisk%20%7C%20KernelSU-orange?style=flat-square" alt="Root">
     <img src="https://img.shields.io/badge/License-MIT-blue?style=flat-square" alt="License">
     <img src="https://img.shields.io/badge/Version-1.7-purple?style=flat-square" alt="Version">
@@ -68,9 +68,9 @@ Your phone has ad-blocking via AdAway or Re-Malwack, but **none of that filterin
 
 | | Status |
 |---|---|
-| ✅ Android 15 | **Tested & Working** |
-| 🟡 Android 10-14 | Should work (requires root + native dnsmasq) |
-| 🟡 Other versions | Untested, but likely compatible |
+| ✅ KernelSU | **Tested & Working** |
+| 🟡 Magisk | Should work (requires native dnsmasq) |
+| 🟡 Other root solutions | Untested, but likely compatible |
 
 > 💡 **Tip:** Check if your device has dnsmasq: `which dnsmasq` or look in `/apex/com.android.tethering/bin/`
 
