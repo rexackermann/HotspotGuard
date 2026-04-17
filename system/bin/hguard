@@ -1,5 +1,5 @@
 #!/system/bin/sh
-# TetherShield Terminal Toggle
+# HotspotGuard Terminal Toggle
 # This script points to the module's action.sh
 
 # Find the module directory

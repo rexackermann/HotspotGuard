@@ -1,4 +1,4 @@
-# Makefile for TetherShield Module
+# Makefile for HotspotGuard Module
 
 MODULE_NAME = hotspot_blocker_ksu.zip
 FILES = module.prop customize.sh service.sh dnsmasq.conf blocklist.txt action.sh system

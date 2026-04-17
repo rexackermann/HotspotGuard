@@ -1,6 +1,6 @@
-id=hotspot_blocker_ksu
-name=TetherShield
+id=hotspot_guard_ksu
+name=HotspotGuard
 version=v1.7
 versionCode=170
 author=Rex
-description=[ACTIVE 🚀] TetherShield — DNS-based ad & site blocking for hotspot clients.
+description=[ACTIVE 🚀] HotspotGuard — DNS-based ad & site blocking for hotspot clients.

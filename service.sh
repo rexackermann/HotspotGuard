@@ -1,5 +1,5 @@
 #!/system/bin/sh
-# TetherShield Service Script
+# HotspotGuard Service Script
 MODDIR=${0%/*}
 STATUS_FILE="/data/adb/hotspot_blocker_status"
 DNSMASQ_CONF="$MODDIR/dnsmasq.conf"
@@ -94,7 +94,7 @@ remove_rules() {
 ENABLED_BOOT=$(cat "$STATUS_FILE")
 STATUS_UI="[ACTIVE 🚀]"
 [ "$ENABLED_BOOT" = "0" ] && STATUS_UI="[INACTIVE 💤]"
-BASE_DESC="TetherShield — DNS-based ad & site blocking for hotspot clients."
+BASE_DESC="HotspotGuard — DNS-based ad & site blocking for hotspot clients."
 sed -i "s/^description=.*/description=$STATUS_UI $BASE_DESC/" "$MODDIR/module.prop"
 
 # Main enforcement loop

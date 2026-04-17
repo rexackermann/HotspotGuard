@@ -1,5 +1,5 @@
 #!/system/bin/sh
-# TetherShield Action Script for Magisk/KSU
+# HotspotGuard Action Script for Magisk/KSU
 MODDIR=${0%/*}
 STATUS_FILE="/data/adb/hotspot_blocker_status"
 PROP_FILE="$MODDIR/module.prop"
@@ -14,12 +14,12 @@ update_ui() {
     local status_msg="[ACTIVE 🚀]"
     [ "$state" = "0" ] && status_msg="[INACTIVE 💤]"
     
-    local base_desc="TetherShield — DNS-based ad & site blocking for hotspot clients."
+    local base_desc="HotspotGuard — DNS-based ad & site blocking for hotspot clients."
     sed -i "s/^description=.*/description=$status_msg $base_desc/" "$PROP_FILE"
 }
 
 echo "****************************************"
-echo "      TetherShield Control Center        "
+echo "       HotspotGuard Control Center        "
 echo "****************************************"
 
 if [ "$CURRENT" = "1" ]; then
