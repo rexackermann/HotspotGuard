@@ -4,6 +4,8 @@
     <strong>Extend your phone's ad-blocker to every device on your hotspot.</strong>
   </p>
   <p align="center">
+    <img src="https://img.shields.io/badge/Security-Protected-green?style=flat-square&logo=shield" alt="Security">
+    <img src="https://img.shields.io/badge/Android-Responsive-brightgreen?style=flat-square&logo=android" alt="Android">
     <img src="https://img.shields.io/badge/Root-Magisk%20%7C%20KernelSU-orange?style=flat-square" alt="Root">
     <img src="https://img.shields.io/badge/License-MIT-blue?style=flat-square" alt="License">
     <img src="https://img.shields.io/badge/Version-1.8-purple?style=flat-square" alt="Version">
