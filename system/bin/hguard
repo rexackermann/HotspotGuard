@@ -3,7 +3,7 @@
 # This script points to the module's action.sh
 
 # Find the module directory
-MODID="hotspot_blocker_ksu"
+MODID="hotspotguard"
 MODDIR="/data/adb/modules/$MODID"
 
 if [ -f "$MODDIR/action.sh" ]; then

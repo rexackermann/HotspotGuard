@@ -1,7 +1,7 @@
 #!/system/bin/sh
 # HotspotGuard Action Script for Magisk/KSU
 MODDIR=${0%/*}
-STATUS_FILE="/data/adb/hotspot_blocker_status"
+STATUS_FILE="/data/adb/hotspotguard_status"
 PROP_FILE="$MODDIR/module.prop"
 
 # Initialize if not exists

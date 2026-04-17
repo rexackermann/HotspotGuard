@@ -1,7 +1,8 @@
 # Makefile for HotspotGuard Module
 
-MODULE_NAME = hotspot_blocker_ksu.zip
-FILES = module.prop customize.sh service.sh dnsmasq.conf blocklist.txt action.sh system
+VERSION = $(shell grep '^version=' module.prop | cut -d= -f2)
+MODULE_NAME = HotspotGuard-$(VERSION).zip
+FILES = module.prop customize.sh service.sh dnsmasq.conf blocklist.txt action.sh system LICENSE
 
 all: zip
 
