@@ -1,0 +1,14 @@
+# Custom Hotspot Blocklist
+# Format: <IP> <domain>
+# Since this mimics a hosts file, route bad domains to 0.0.0.0
+
+# Instagram / Reels Blocking
+0.0.0.0 reels.instagram.com
+0.0.0.0 instagram.com
+0.0.0.0 www.instagram.com
+0.0.0.0 cdninstagram.com
+0.0.0.0 scontent.cdninstagram.com
+0.0.0.0 i.instagram.com
+0.0.0.0 graph.instagram.com
+
+# Add any others below

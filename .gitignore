@@ -1,0 +1,15 @@
+# Build artifacts
+*.zip
+
+# Backups
+backup_hotspot/
+
+# Re-Malwack (separate project)
+Re-Malwack/
+
+# Runtime files
+*.pid
+*.log
+
+# Test scripts
+test_run.sh

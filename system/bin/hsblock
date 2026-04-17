@@ -1,0 +1,14 @@
+#!/system/bin/sh
+# TetherShield Terminal Toggle
+# This script points to the module's action.sh
+
+# Find the module directory
+MODID="hotspot_blocker_ksu"
+MODDIR="/data/adb/modules/$MODID"
+
+if [ -f "$MODDIR/action.sh" ]; then
+    sh "$MODDIR/action.sh"
+else
+    echo "[!] Error: Module directory $MODDIR not found."
+    exit 1
+fi
