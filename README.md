@@ -1,115 +1,190 @@
-# HotspotGuard
+<p align="center">
+  <h1 align="center">🛡️ HotspotGuard</h1>
+  <p align="center">
+    <strong>Extend your phone's ad-blocker to every device on your hotspot.</strong>
+  </p>
+  <p align="center">
+    <img src="https://img.shields.io/badge/Android-15-brightgreen?style=flat-square&logo=android" alt="Android 15">
+    <img src="https://img.shields.io/badge/Root-Magisk%20%7C%20KernelSU-orange?style=flat-square" alt="Root">
+    <img src="https://img.shields.io/badge/License-MIT-blue?style=flat-square" alt="License">
+    <img src="https://img.shields.io/badge/Version-1.7-purple?style=flat-square" alt="Version">
+  </p>
+</p>
 
-> **Extend your phone's ad-blocker to every device on your hotspot.**
+---
 
-A Magisk/KernelSU module that makes your existing ad-blocker (like [AdAway](https://adaway.org/), [Re-Malwack](https://github.com/user/Re-Malwack), or any hosts-file based blocker) work seamlessly across your Android hotspot — blocking ads, trackers, and bandwidth-hogging services for **all connected clients**.
+## 😤 The Problem
 
-## The Problem
+You share your mobile data via hotspot, and your friends or family **burn through your bandwidth** watching Instagram Reels, TikTok, and YouTube Shorts — endlessly scrolling through your precious data plan.
 
-You share your mobile data via hotspot, and your friends or family burn through your bandwidth watching Instagram Reels, TikTok, and YouTube Shorts. Your phone has ad-blocking via AdAway or Re-Malwack, but **none of that filtering reaches the devices connected to your hotspot**. They get raw, unfiltered internet — full of ads and infinite-scroll content that eats your data plan alive.
+Your phone has ad-blocking via AdAway or Re-Malwack, but **none of that filtering reaches the devices connected to your hotspot**. They get raw, unfiltered internet — full of ads, trackers, and infinite-scroll content that eats your data alive.
 
-Android's tethering system uses its own internal DNS proxy that completely ignores your phone's hosts file. Even with root, the hotspot clients bypass all your carefully configured blocking.
+> 🤔 *Why?* Android's tethering system uses its own internal DNS proxy that **completely ignores** your phone's hosts file. Even with root, hotspot clients bypass all your carefully configured blocking.
 
-## The Solution
+---
 
-HotspotGuard intercepts DNS queries from hotspot clients and routes them through a filtered DNS proxy (`dnsmasq`) that reads your phone's hosts file — the same one your ad-blocker manages. It also:
+## 💡 The Solution
 
-- **Removes Android's competing DNS proxy rules** that would bypass the filter
-- **Flushes connection tracking** so existing connections get re-evaluated
-- **Blocks IPv6 DNS leakage** on Mobile Data (forces IPv4 fallback where filtering works)
+**HotspotGuard** intercepts DNS queries from hotspot clients and routes them through a filtered DNS proxy that reads your phone's hosts file — the same one your ad-blocker manages.
 
-The result: every device on your hotspot gets the same ad & site blocking your phone has.
+```
+📱 Your Phone (with AdAway/Re-Malwack)
+ │
+ ├── 🛡️ HotspotGuard (dnsmasq on port 5354)
+ │    ├── 📋 /system/etc/hosts (your ad-blocker's blocklist)
+ │    └── 📋 custom blocklist (Reels, TikTok, etc.)
+ │
+ ├── 📲 Client Device 1 ──► DNS intercepted ──► 🚫 Ads blocked!
+ ├── 📲 Client Device 2 ──► DNS intercepted ──► 🚫 Reels blocked!
+ └── 📲 Client Device 3 ──► DNS intercepted ──► 🚫 Trackers blocked!
+```
 
-## Features
+---
 
-- 🛡️ **Extends AdAway / Re-Malwack / any hosts-based blocker** to all hotspot clients
-- 🚫 **Block bandwidth-wasting services** (Reels, TikTok, etc.) via custom blocklist
-- 🔄 **Toggle on/off** via KernelSU/Magisk Action button or terminal (`su -c hguard`)
-- 📊 **Live status** on the module card (`[ACTIVE 🚀]` / `[INACTIVE 💤]`)
-- 🌐 **IPv6 DNS leak protection** — prevents bypass on Mobile Data
-- ⚡ **Conntrack-aware** — actively fights Android's tethering DNS proxy
-- 📋 **Debug logging** at `/data/adb/modules/hotspot_blocker_ksu/service.log`
+## ✨ Features
 
-## Requirements
+| Feature | Description |
+|---------|-------------|
+| 🛡️ **Ad-Blocker Extension** | Extends AdAway / Re-Malwack / any hosts-based blocker to all hotspot clients |
+| 🚫 **Bandwidth Saver** | Block Reels, TikTok, YouTube Shorts, and other data hogs via custom blocklist |
+| 🔄 **One-Tap Toggle** | Turn on/off via KernelSU/Magisk Action button or `su -c hguard` |
+| 📊 **Live Status** | Module card shows `[ACTIVE 🚀]` or `[INACTIVE 💤]` at a glance |
+| 🌐 **IPv6 Leak Protection** | Blocks IPv6 DNS to prevent bypass on Mobile Data |
+| ⚡ **Conntrack-Aware** | Actively fights Android's tethering DNS proxy to maintain control |
+| 📋 **Debug Logging** | Full logs at `/data/adb/modules/hotspot_blocker_ksu/service.log` |
+| 🔧 **Zero Config** | Works out of the box — just flash and reboot |
 
-- Rooted Android device (Magisk or KernelSU)
-- Native `dnsmasq` binary (present on most Android devices)
-- A hosts-file based ad-blocker (AdAway, Re-Malwack, etc.) — optional but recommended
+---
 
-## Compatibility
+## 📦 Requirements
 
-- ✅ **Tested on Android 15**
-- Should work on Android 10+ with root (Magisk/KernelSU)
-- Requires native `dnsmasq` (check with `which dnsmasq` or look in `/apex/com.android.tethering/bin/`)
+- 📱 Rooted Android device (**Magisk** or **KernelSU**)
+- 🔧 Native `dnsmasq` binary (present on most Android devices)
+- 🛡️ A hosts-file based ad-blocker (AdAway, Re-Malwack, etc.) — *optional but recommended*
 
-## Installation
+---
 
-1. Download the latest `hotspot_blocker_ksu.zip` from [Releases](../../releases)
-2. Flash via KernelSU or Magisk Manager
-3. Reboot
-4. That's it — your hotspot clients are now filtered
+## 🧪 Compatibility
 
-## Usage
+| | Status |
+|---|---|
+| ✅ Android 15 | **Tested & Working** |
+| 🟡 Android 10-14 | Should work (requires root + native dnsmasq) |
+| 🟡 Other versions | Untested, but likely compatible |
 
-### Toggle via Manager
+> 💡 **Tip:** Check if your device has dnsmasq: `which dnsmasq` or look in `/apex/com.android.tethering/bin/`
+
+---
+
+## 🚀 Installation
+
+```bash
+# 1. Download the latest hotspot_blocker_ksu.zip
+# 2. Flash via KernelSU or Magisk Manager
+# 3. Reboot
+# 4. Done! Your hotspot clients are now filtered 🎉
+```
+
+---
+
+## 🎮 Usage
+
+### 🔘 Toggle via Manager
 Tap the **Action** button on the module card in KernelSU/Magisk Manager.
 
-### Toggle via Terminal
+### 💻 Toggle via Terminal
 ```bash
 su -c hguard
 ```
+```
+****************************************
+       HotspotGuard Control Center
+****************************************
+Status: [DISABLED] -> [ENABLING...]
 
-### Check Status
+[+] Hotspot protection is now ON.
+[+] Firewall rules and DNS proxy starting.
+****************************************
+```
+
+### 📊 Check Status
 ```bash
 cat /data/adb/hotspot_blocker_status   # 1 = ON, 0 = OFF
 cat /data/adb/modules/hotspot_blocker_ksu/service.log
 ```
 
-## Extending Your Ad-Blocker to Hotspot
+---
 
-HotspotGuard automatically reads `/system/etc/hosts`, which is the file managed by most hosts-based ad-blockers:
+## 🔗 Extending Your Ad-Blocker to Hotspot
 
-| Ad-Blocker | How it works with HotspotGuard |
-|---|---|
-| **AdAway** | AdAway modifies `/system/etc/hosts`. HotspotGuard picks it up automatically. |
-| **Re-Malwack** | Re-Malwack maintains a comprehensive hosts file. HotspotGuard uses it seamlessly. |
-| **Others** | Any module that writes to `/system/etc/hosts` will work out of the box. |
+HotspotGuard automatically reads `/system/etc/hosts`, which is the file managed by most hosts-based ad-blockers. **No extra configuration needed** — if your phone blocks it, your hotspot clients block it too.
 
-No extra configuration needed — if your phone blocks it, your hotspot clients block it too.
+| Ad-Blocker | Integration | Notes |
+|---|---|---|
+| 🟢 **AdAway** | ✅ Automatic | Modifies `/system/etc/hosts` — picked up instantly |
+| 🟢 **Re-Malwack** | ✅ Automatic | Maintains a comprehensive hosts file — works seamlessly |
+| 🟢 **Hosts-based blockers** | ✅ Automatic | Any module writing to `/system/etc/hosts` works out of the box |
+| 🟡 **DNS-based blockers** | ⚠️ Manual | May need config adjustment if they don't use hosts file |
 
-## Custom Blocklist (Bandwidth Saving)
+---
 
-Want to stop people from burning through your data on Reels and short-form video? Edit the blocklist:
+## 🚫 Custom Blocklist (Bandwidth Saving)
+
+> *"My roommate burned 2GB in one hour watching Reels on my hotspot."*
+>
+> — Every hotspot owner, ever. 😭
+
+Stop people from devouring your data on infinite-scroll content. Edit the blocklist:
 
 ```bash
-# /data/adb/modules/hotspot_blocker_ksu/blocklist.txt
-# Hosts-file format: block Instagram Reels, TikTok, YouTube Shorts, etc.
+# 📄 /data/adb/modules/hotspot_blocker_ksu/blocklist.txt
+# Format: 0.0.0.0 <domain>
 
+# 📸 Instagram Reels
 0.0.0.0 i.instagram.com
 0.0.0.0 scontent.cdninstagram.com
+
+# 🎵 TikTok
 0.0.0.0 www.tiktok.com
 0.0.0.0 v16-webapp.tiktok.com
+
+# ▶️ YouTube Shorts
 0.0.0.0 shorts.youtube.com
 ```
 
-This is perfect for situations where you're sharing your limited mobile data and don't want it wasted on infinite-scroll content.
+---
 
-## How It Works (Technical)
+## ⚙️ How It Works (Under the Hood)
 
-1. Starts `dnsmasq` on port 5354 with your phone's hosts file as a blocklist
-2. Inserts an `iptables` REDIRECT rule at the top of PREROUTING to intercept all DNS (UDP 53)
-3. Deletes Android's built-in tethering DNAT rules that would bypass our filter
-4. Flushes DNS conntrack entries so existing connections get re-evaluated
-5. Blocks IPv6 DNS forwarding to prevent leak/bypass on Mobile Data
-6. Re-enforces all rules every 10 seconds to survive hotspot toggles
-
-## Building
-
-```bash
-make        # Creates hotspot_blocker_ksu.zip
-make clean  # Removes the zip
+```
+1. 🔧 Starts dnsmasq on port 5354 with your hosts file
+2. 🔀 Inserts iptables REDIRECT at top of PREROUTING (UDP 53 → 5354)
+3. 🗑️ Deletes Android's built-in tethering DNAT rules
+4. 🔄 Flushes DNS conntrack entries (forces re-evaluation)
+5. 🌐 Blocks IPv6 DNS forwarding (prevents Mobile Data bypass)
+6. ♻️ Re-enforces all rules every 10 seconds
 ```
 
-## License
+---
 
-MIT
+## 🔨 Building from Source
+
+```bash
+make        # 📦 Creates hotspot_blocker_ksu.zip
+make clean  # 🧹 Removes the zip
+```
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+
+---
+
+<p align="center">
+  Made with ❤️ by <strong>Rex</strong>
+</p>
+<p align="center">
+  <em>Because your data plan deserves better than someone else's Reels addiction.</em> 😤📵
+</p>
