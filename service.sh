@@ -49,7 +49,7 @@ apply_rules() {
 
     # 3. Delete Android's competing DNAT rules for hotspot DNS
     # These point to Android's internal DNS proxy and steal our traffic via conntrack
-    iptables-save -t nat 2>/dev/null | grep -E "\-A PREROUTING.*dport 53.*DNAT" | while IFS= read -r line; do
+    iptables-save -t nat 2>/dev/null | grep -E "\-A PREROUTING.*ap[0-9].*dport 53.*DNAT" | while IFS= read -r line; do
         rule=$(echo "$line" | sed 's/^-A /-D /')
         iptables -t nat $rule 2>/dev/null
     done
