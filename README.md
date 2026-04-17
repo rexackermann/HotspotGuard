@@ -4,10 +4,9 @@
     <strong>Extend your phone's ad-blocker to every device on your hotspot.</strong>
   </p>
   <p align="center">
-    <img src="https://img.shields.io/badge/KernelSU-Supported-brightgreen?style=flat-square&logo=android" alt="KernelSU">
     <img src="https://img.shields.io/badge/Root-Magisk%20%7C%20KernelSU-orange?style=flat-square" alt="Root">
     <img src="https://img.shields.io/badge/License-MIT-blue?style=flat-square" alt="License">
-    <img src="https://img.shields.io/badge/Version-1.7-purple?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/Version-1.8-purple?style=flat-square" alt="Version">
   </p>
 </p>
 
@@ -51,7 +50,7 @@ Your phone has ad-blocking via AdAway or Re-Malwack, but **none of that filterin
 | 📊 **Live Status** | Module card shows `[ACTIVE 🚀]` or `[INACTIVE 💤]` at a glance |
 | 🌐 **IPv6 Leak Protection** | Blocks IPv6 DNS to prevent bypass on Mobile Data |
 | ⚡ **Conntrack-Aware** | Actively fights Android's tethering DNS proxy to maintain control |
-| 📋 **Debug Logging** | Full logs at `/data/adb/modules/hotspot_blocker_ksu/service.log` |
+| 📋 **Debug Logging** | Full logs at `/data/adb/modules/hotspotguard/service.log` |
 | 🔧 **Zero Config** | Works out of the box — just flash and reboot |
 
 ---
@@ -79,7 +78,7 @@ Your phone has ad-blocking via AdAway or Re-Malwack, but **none of that filterin
 ## 🚀 Installation
 
 ```bash
-# 1. Download the latest hotspot_blocker_ksu.zip
+# 1. Download the latest HotspotGuard-v*.zip
 # 2. Flash via KernelSU or Magisk Manager
 # 3. Reboot
 # 4. Done! Your hotspot clients are now filtered 🎉
@@ -109,8 +108,8 @@ Status: [DISABLED] -> [ENABLING...]
 
 ### 📊 Check Status
 ```bash
-cat /data/adb/hotspot_blocker_status   # 1 = ON, 0 = OFF
-cat /data/adb/modules/hotspot_blocker_ksu/service.log
+cat /data/adb/hotspotguard_status   # 1 = ON, 0 = OFF
+cat /data/adb/modules/hotspotguard/service.log
 ```
 
 ---
@@ -137,7 +136,7 @@ HotspotGuard automatically reads `/system/etc/hosts`, which is the file managed 
 Stop people from devouring your data on infinite-scroll content. Edit the blocklist:
 
 ```bash
-# 📄 /data/adb/modules/hotspot_blocker_ksu/blocklist.txt
+# 📄 /data/adb/modules/hotspotguard/blocklist.txt
 # Format: 0.0.0.0 <domain>
 
 # 📸 Instagram Reels
@@ -170,7 +169,7 @@ Stop people from devouring your data on infinite-scroll content. Edit the blockl
 ## 🔨 Building from Source
 
 ```bash
-make        # 📦 Creates hotspot_blocker_ksu.zip
+make        # 📦 Creates HotspotGuard-v<version>.zip
 make clean  # 🧹 Removes the zip
 ```
 
