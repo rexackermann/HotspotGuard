@@ -7,7 +7,7 @@
     <img src="https://img.shields.io/badge/Platform-Android-brightgreen?style=for-the-badge&logo=android" alt="Android">
     <img src="https://img.shields.io/badge/Root-Magisk%20%7C%20KernelSU-orange?style=for-the-badge" alt="Root">
     <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="License">
-    <img src="https://img.shields.io/badge/Version-1.8-purple?style=for-the-badge" alt="Version">
+    <img src="https://img.shields.io/badge/Version-2.0-purple?style=for-the-badge" alt="Version">
   </p>
 </p>
 

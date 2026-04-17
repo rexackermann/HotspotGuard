@@ -1,7 +1,7 @@
 id=hotspotguard
 name=HotspotGuard
-version=v1.8
-versionCode=180
+version=v2.0
+versionCode=200
 author=Rex
 description=[ACTIVE 🚀] HotspotGuard — DNS-based ad & site blocking for hotspot clients.
 updateJson=https://raw.githubusercontent.com/rexackermann/HotspotGuard/main/update.json

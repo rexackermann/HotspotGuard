@@ -1,6 +1,6 @@
 {
-  "version": "v1.8",
-  "versionCode": 180,
-  "zipUrl": "https://github.com/rexackermann/HotspotGuard/releases/download/v1.8/HotspotGuard-v1.8.zip",
+  "version": "v2.0",
+  "versionCode": 200,
+  "zipUrl": "https://github.com/rexackermann/HotspotGuard/releases/download/v2.0/HotspotGuard-v2.0.zip",
   "changelog": "https://raw.githubusercontent.com/rexackermann/HotspotGuard/main/CHANGELOG.md"
 }
