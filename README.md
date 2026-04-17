@@ -15,9 +15,9 @@
 
 ## 😤 The Problem
 
-You share your mobile data via hotspot, and your friends or family **burn through your bandwidth** watching Instagram Reels, TikTok, and YouTube Shorts — endlessly scrolling through your precious data plan.
+* Your phone has ad-blocking via AdAway or Re-Malwack, but **none of that filtering reaches the devices connected to your hotspot**. They get raw, unfiltered internet — full of ads, trackers, and infinite-scroll content that eats your data alive.
 
-Your phone has ad-blocking via AdAway or Re-Malwack, but **none of that filtering reaches the devices connected to your hotspot**. They get raw, unfiltered internet — full of ads, trackers, and infinite-scroll content that eats your data alive.
+* You share your mobile data via hotspot, and your friends or family **burn through your bandwidth** watching Instagram Reels, TikTok, and YouTube Shorts — endlessly scrolling through your precious data plan.
 
 > 🤔 *Why?* Android's tethering system uses its own internal DNS proxy that **completely ignores** your phone's hosts file. Even with root, hotspot clients bypass all your carefully configured blocking.
 
